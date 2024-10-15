@@ -16,6 +16,10 @@ public class Status {
 	public Status() {
 		
 	}
+	public Status(Long id, String description) {
+		this.statusId = id;
+		this.description = description;
+	}
 
 	public Long getStatusId() {
 		return statusId;
@@ -33,5 +37,21 @@ public class Status {
 		this.description = description;
 	}
 	
-	
+	public enum Values{
+		PENDING(1L, "peding"),
+		SUCESS(2L, "sucess"),
+		ERROR(3L, "error"),
+		CANCELED(4L, "canceled");
+		
+		private Long id;
+		private String description;
+		
+		Values(Long id, String description) {
+			this.id = id;
+			this.description = description;
+	}
+		public Status toStatus() {
+			return new Status(id, description);
+		}
+}
 }
