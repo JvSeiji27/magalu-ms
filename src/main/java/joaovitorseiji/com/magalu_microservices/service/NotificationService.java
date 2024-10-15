@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import joaovitorseiji.com.magalu_microservices.dto.ScheduleNotificationDTO;
 import joaovitorseiji.com.magalu_microservices.entity.Notification;
+import joaovitorseiji.com.magalu_microservices.entity.Status;
 import joaovitorseiji.com.magalu_microservices.repository.NotificationRepository;
 
 @Service
@@ -20,5 +21,14 @@ public class NotificationService {
 	
 	public Optional<Notification> findById(Long notificationId){
 		return repository.findById(notificationId);
+	}
+
+	public void cancelNotification(Long notificationId) {
+		var notification = repository.findById(notificationId);
+		if(notification.isPresent()) {
+			notification.get().setStatus(Status.Values.CANCELED.toStatus());
+			repository.save(notification.get());
+		}
+	
 	}
 }
