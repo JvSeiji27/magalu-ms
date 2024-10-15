@@ -40,8 +40,8 @@ public class Channel {
 	
 	public enum Values{
 		
-		SMS(1L,"email"),
-		EMAIL(2L,"sms"),
+		SMS(1L,"sms"),
+		EMAIL(2L,"email"),
 		PUSH(3L,"push"),
 		WHATSAPP(4L,"whatsapp");
 		
