@@ -38,7 +38,7 @@ public class Status {
 	}
 	
 	public enum Values{
-		PENDING(1L, "peding"),
+		PENDING(1L, "pending"),
 		SUCESS(2L, "sucess"),
 		ERROR(3L, "error"),
 		CANCELED(4L, "canceled");
